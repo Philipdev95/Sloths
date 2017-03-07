@@ -14,3 +14,6 @@ input{
     height: 1px;
     margin: 2% 0px;
 }
+label{
+    text-align: left;
+}
