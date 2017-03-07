@@ -17,3 +17,9 @@ input{
 label{
     text-align: left;
 }
+.amount{
+    text-align: center;
+}
+footer{
+    text-align: center;
+}
