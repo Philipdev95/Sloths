@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+}
+input{
+    margin: 3% 0px;
+    font-size: 200%;
+}
+#search{
+    font-size: 110%;
+    
+}
+.lines{
+    background: #ccc;
+    height: 1px;
+    margin: 2% 0px;
+}
