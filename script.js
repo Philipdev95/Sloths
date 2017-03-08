@@ -3,10 +3,10 @@ $("#searchButton").on("click", function () {
     $("#searchButton").html("Din mamma kan va en " + text + "!");
 });
 
-function recipe(searchq) {
+function recipe(searchq, searchamount) {
     $.ajax({
         type: "GET",
-        url: "https://api.edamam.com/search?q=" + searchq + "",
+        url: "https://api.edamam.com/search?q=" + searchq + "&to=" + searchamount + "",
         dataType: "json",
         error: function (response) {
             alert('Error: There was a problem processing your request, please refresh the browser and try again');
@@ -31,5 +31,6 @@ function recipe(searchq) {
 
 $("#provaq").on("click", function(){
     searchq = $("#search").val();
-    recipe(searchq);
+    searchamount = $("#chooseamount option:selected").text();
+    recipe(searchq, searchamount);
 });
