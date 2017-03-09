@@ -24,7 +24,7 @@ function recipe(searchq, searchAmount, searchHealth) {
     });
 }
 
-$("#search").on("click", function () {
+$("#searchButton").on("click", function () {
     var searchHealth = $("input:checked").val();
     console.log(searchHealth);
     if (typeof searchHealth === "undefined") {
