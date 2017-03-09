@@ -1,4 +1,3 @@
-
 function recipe(searchq, searchAmount, searchhealth) {
     $.ajax({
         type: "GET",
@@ -40,4 +39,3 @@ $("#provaq").on("click", function () {
         searchAmount = $("#chooseamount option:selected").text();
     recipe(searchq, searchAmount, searchHealth);
 });
-
