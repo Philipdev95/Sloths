@@ -10,7 +10,7 @@ function recipe() {
         success: function (response) {
             console.log(response);
             var searchWord = "",
-                searchAmount = ""; 
+                searchAmount = "";
             
             $("#recipe-div").append("<h4 class='media-heading' id='recipe-label'>" +  + "</h4>");
         }
