@@ -16,56 +16,56 @@
             <div class="search row">
                 <form>
                     <div class="checkboxes row col-xs-10 col-xs-offset-1">
-                        <label class="col-xs-5">
-                            <input type="checkbox" value="gluten">
+                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                            <input type="checkbox">
                             Glutenfri
                         </label>
-                        <label class="col-xs-5 col-xs-offset-2">
-                            <input type="checkbox" value="sugar-conscious">
+                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                            <input type="checkbox">
                             Sockerfri
                         </label>
-                        <label class="col-xs-5">
-                            <input type="checkbox" value="vegetarian">
-                            Vegetariskt
+                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                            <input type="checkbox">
+                            Vegetarisk
                         </label>
-                        <label class="col-xs-5 col-xs-offset-2">
-                            <input type="checkbox" value="dairy">
+                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                            <input type="checkbox">
                             Laktosfri
                         </label>
-                        <label class="col-xs-5">
-                            <input type="checkbox" value="fett">
+                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                            <input type="checkbox">
                             Fettsnålt
                         </label>
-                        <label class="col-xs-5 col-xs-offset-2">
-                            <input type="checkbox" value="protein">
+                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                            <input type="checkbox">
                             Proteinrikt
                         </label>
                     
                     
-                    <label class="amount col-xs-12">Antal Recept:</label>
-                    <select id="chooseamount" class="col-xs-4 col-xs-offset-4" name="amount">
-                        <option disabled>Antal:</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                    </select>
+                        <label class="amount col-xs-12">Antal Recept:</label>
+                        <select id="chooseamount" class="amount col-xs-2 col-xs-offset-5 col-md-2" name="amount">
+                            <option disabled>Antal:</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
                     </div>
-
-                    <input id="search" class="col-xs-10 col-xs-offset-1" type="text" placeholder="Sök">
+                    <input id="search" class="col-xs-10 col-xs-offset-1 search" type="text" placeholder="Sök">
                     <div id="provaq">HÄR!</div>
-                    <button id="searchButton" class="btn-lg btn-primary col-xs-4 col-xs-offset-4">
-                        Ta fram recept
+                    <button id="searchButton" class="btn-lg btn-primary col-xs-6 col-xs-offset-3">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Ta fram recept
                     </button>
                 </form>
             </div>
             <div class="lines col-xs-12"></div>
             <br>
             <div class="recipe row">
-                <h2 class="col-xs-12">Dina recept:</h2>
+                <h2 class="col-xs-12"><span class="glyphicon glyphicon-list-alt"></span> Senaste recept:</h2>
+
                 <div class="col-xs-12 media">
                     <div class="col-xs-4 media-right">
                         <a href="#">
@@ -73,8 +73,9 @@
                         </a>
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading" id="recipe-label"></h4>
-                            <p id="recipe-text"></p>
+                        <h4 class="media-heading" id="recipe-label">
+                        Heading</h4>
+                            <p id="recipe-text">Text</p>
                     </div>
                 </div>
                 

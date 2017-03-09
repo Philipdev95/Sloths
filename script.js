@@ -1,22 +1,20 @@
-$("#searchButton").on("click", function () {
-    var text = $("#search").val()
-    $("#searchButton").html("Din mamma kan va en " + text + "!");
-});
-
 function recipe(searchq, searchamount, searchhealth) {
     $.ajax({
         type: "GET",
-        url: "https://api.edamam.com/search?q=" + searchq + "&to=" + searchamount + searchhealth + "",
+        url: "https://api.edamam.com/search?q=" + searchq + "&to=" + searchamount + searchhealth + "/",
         dataType: "json",
         error: function (response) {
             alert('Error: There was a problem processing your request, please refresh the browser and try again');
         },
         success: function (response) {
             console.log(response);
-            var i;
-            var list = "";
-            var x = response.hits[0].recipe.ingredientLines;
-            for (i = 0; i < x.length; i++){
+            var i,
+                list = "",
+                x = response.hits[0].recipe.ingredientLines,
+                searchrecipe = "",
+                searchlabel = "",
+                searchimg = "";
+            for (i = 0; i < x.length; i++) {
                 list = "";
                 searchrecipe = response.hits[0].recipe.ingredientLines[i];
                 $("#recipe-text").append("<p>" + searchrecipe + "</p>");
@@ -27,18 +25,17 @@ function recipe(searchq, searchamount, searchhealth) {
             $("#recipe-img").attr("src", searchimg);
         }
     });
-};
+}
 
-$("#provaq").on("click", function(){
-    searchhealth = $("input:checked").val();
+$("#provaq").on("click", function () {
+    var searchhealth = $("input:checked").val();
     console.log(searchhealth);
-    if (typeof searchhealth === "undefined"){
+    if (typeof searchhealth === "undefined") {
         searchhealth = "";
-    }
-    else{
+    } else {
         searchhealth = "&health=" + searchhealth;
-    };
-    searchq = $("#search").val();
-    searchamount = $("#chooseamount option:selected").text();
+    }
+    var searchq = $("#search").val(),
+        searchamount = $("#chooseamount option:selected").text();
     recipe(searchq, searchamount, searchhealth);
 });
