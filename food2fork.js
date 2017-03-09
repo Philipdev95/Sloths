@@ -1,4 +1,4 @@
-//Nytt api becouse the otherone might not work
+//Nytt api because the other one might not work
 function recipe(searchq, searchAmount, searchHealth) {
     $.ajax({
         type: "GET",
