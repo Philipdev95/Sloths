@@ -1,13 +1,49 @@
-h1{
+body{
+    background-image: url(img/background/naturalblack.png);
+}
+.container{
+    
+}
+.header{
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding: 5px 0 15px 0;
+    text-align: center;
+    background: #33e2c6;
+    color: #fff;
+}
+.search{
+    color: white;
+    padding: 20px 0px;
+}
+.amount{
     text-align: center;
 }
-input{
-    margin: 3% 0px;
-    font-size: 200%;
+#chooseamount{
+    color: #000;
 }
 #search{
-    font-size: 110%;
-    
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-size: 200%;
+    border-radius: 5px;
+    color: #000;
+    text-align: center;
+}
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
 }
 .lines{
     background: #ccc;
@@ -16,4 +52,26 @@ input{
 }
 label{
     text-align: left;
+    font-size: 20px;
+}
+.recipe{
+    padding-bottom: 20px;
+    background: #fff;
+}
+footer{
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+}
+@media screen and (min-width: 550px) {
+    label{
+        text-align: center;
+    }
+}
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 992px) {
+    
 }
