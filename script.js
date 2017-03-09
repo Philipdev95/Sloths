@@ -8,16 +8,13 @@ function recipe(searchq, searchAmount, searchHealth) {
         },
         success: function (response) {
             console.log(response);
-            var i,
-                list = "",
-                x = response.hits[0].recipe.ingredientLines,
+            var x = response.hits[0].recipe.ingredientLines,
                 searchRecipe = "",
                 searchLabel = "",
                 searchImg = "";
             for (i = 0; i < x.length; i++) {
-                list = "";
                 searchRecipe = response.hits[0].recipe.ingredientLines[i];
-                $("#recipe-text").append("<p>" + searchRecipe + "</p>");
+                $("#recipe-text").append("<h4 class='media-heading' id='recipe-label'>" + searchRecipe + "</h4>");
             }
             searchLabel = response.hits[0].recipe.label;
             $("#recipe-label").append(searchLabel);
