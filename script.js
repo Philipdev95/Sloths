@@ -17,7 +17,7 @@ function recipe(searchq, searchAmount, searchHealth) {
                 $("#recipe-text").append("<h4 class='media-heading' id='recipe-label'>" + searchRecipe + "</h4>");
             }
             searchLabel = response.hits[0].recipe.label;
-            $("#recipe-label").append(searchLabel);
+            $("#recipe-label").replaceWith(searchLabel);
             searchimg = response.hits[0].recipe.image;
             $("#recipe-img").attr("src", searchimg);
         }
