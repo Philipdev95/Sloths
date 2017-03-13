@@ -14,7 +14,6 @@ function recipe(searchq, searchAmount, searchHealth) {
             for (i = 0; i < x.length; i++){
                 searchrecipe = response.hits[0].recipe.ingredientLines[i];
                 list += "<p>" + searchrecipe + "</p>";
-                console.log(list);
             }
             $("#recipe-text").html(list);
             searchlabel = response.hits[0].recipe.label;
@@ -36,4 +35,15 @@ $("#searchhere").on("click", function () {
     var searchq = $("#search").val(),
         searchAmount = $("#chooseamount option:selected").text();
     recipe(searchq, searchAmount, searchHealth);
+    diet_health();
 });
+
+function diet_health() {
+    if ($('#gluten-free').is(":checked"))
+        {
+            console.log("test");
+        }
+    else{
+        console.log("ej test");
+    }
+}
