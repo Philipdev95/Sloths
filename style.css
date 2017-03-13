@@ -10,11 +10,11 @@ body{
     margin: 0;
 }
 .radi-back{
-  background: red;
-  background: -webkit-linear-gradient(left top, red, yellow);
-  background: -o-linear-gradient(bottom right, red, yellow);
-  background: -moz-linear-gradient(bottom right, red, yellow);
-  background: linear-gradient(to bottom right, red, yellow);
+  background: #FFAE09;
+  background: -webkit-linear-gradient(left top, #FFAE09, yellow);
+  background: -o-linear-gradient(bottom right, #FFAE09, yellow);
+  background: -moz-linear-gradient(bottom right, #FFAE09, yellow);
+  background: linear-gradient(to bottom right, #FFAE09, yellow);
 }
 .header{
     font-family: 'Open Sans Condensed', sans-serif;
