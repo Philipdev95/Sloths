@@ -1,7 +1,7 @@
 function recipe(searchq, searchAmount, searchHealth, searchDiet) {
     $.ajax({
         type: "GET",
-        url: "https://api.edamam.com/search?q=" + searchq + "&to=" + searchAmount + "" + searchHealth + "" + searchDiet + "",
+        url: "https://api.edamam.com/search?q=" + searchq + "&to=" + searchAmount + searchHealth + searchDiet + "",
         dataType: "json",
         error: function (response) {
             alert('Error: There was a problem processing your request, please refresh the browser and try again');
@@ -45,14 +45,14 @@ $("#searchhere").on("click", function () {
     console.log(searchHealth);
     console.log(searchDiet);
 
-    recipe(searchq, searchAmount, searchHealth);
+    recipe(searchq, searchAmount, searchHealth, searchDiet);
 });
 
 function health_label() {
     health_labels = $(".health_label:checked").map(function () {
         return this.value;
     }).get().join(",%20");
-    if (health_labels == "") {
+    if (health_labels === "") {
         health_labels = "";
     } else {
         health_labels = "&health=" + health_labels;
@@ -64,7 +64,7 @@ function diet_label() {
     diet_labels = $(".diet_label:checked").map(function () {
         return this.value;
     }).get().join(",%20");
-    if (diet_labels == "") {
+    if (diet_labels === "") {
         diet_labels = "";
     } else {
         diet_labels = "&diet=" + diet_labels;
