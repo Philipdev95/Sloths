@@ -1,3 +1,18 @@
+function printRecipe(response, searchAmount, list) {
+	console.log(searchAmount);
+	for (i = 0; i < searchAmount.length; i++) {
+		//$("#recipe-text").html(list);
+		searchlabel = response.hits[i].recipe.label;
+		//$("#recipe-label").html(searchlabel);
+		searchimg = response.hits[i].recipe.image;
+		//$("#recipe-img").attr("src", searchimg);
+        
+        $(".recipe").append("<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>"
+            );
+	}
+    console.log("loopen körs: " + i + "gånger.");
+}
+
 function recipe(searchq, searchAmount, searchHealth, searchDiet) {
     $.ajax({
         type: "GET",
@@ -12,29 +27,12 @@ function recipe(searchq, searchAmount, searchHealth, searchDiet) {
                 list = "",
                 x = response.hits[0].recipe.ingredientLines;
             for (i = 0; i < x.length; i++) {
-                searchrecipe = response.hits[0].recipe.ingredientLines[i];
+                var searchrecipe = response.hits[0].recipe.ingredientLines[i];
                 list += "<p>" + searchrecipe + "</p>";
             }
 			printRecipe(response, searchAmount, list);
         }
     });
-}
-
-function printRecipe(response, searchAmount, list){
-	console.log(searchAmount);
-	for(i = 0; i < searchAmount.length; i++){
-		//$("#recipe-text").html(list);
-		searchlabel = response.hits[i].recipe.label;
-		//$("#recipe-label").html(searchlabel);
-		searchimg = response.hits[i].recipe.image;
-		//$("#recipe-img").attr("src", searchimg);
-        
-        $(".recipe").append(
-        "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>"
-                       );
-        alert(i);
-	}
-    console.log(i);
 }
 
 $("#searchhere").on("click", function () {
@@ -61,7 +59,7 @@ function health_label() {
 }
 
 function diet_label() {
-    diet_labels = $(".diet_label:checked").map(function () {
+    var diet_labels = $(".diet_label:checked").map(function () {
         return this.value;
     }).get().join(",%20");
     if (diet_labels === "") {
