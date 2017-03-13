@@ -16,7 +16,7 @@ function printRecipe(response, searchAmount, list) {
 function recipe(searchq, searchAmount, searchHealth, searchDiet) {
     $.ajax({
         type: "GET",
-        url: "https://api.edamam.com/search?q=" + searchq + "&to=" + searchAmount + searchHealth + searchDiet + "",
+        url: "https://api.edamam.com/search?q=" + searchq + "&to=" + searchAmount + searchHealth + searchDiet,
         dataType: "json",
         error: function (response) {
             alert('Error: There was a problem processing your request, please refresh the browser and try again');
