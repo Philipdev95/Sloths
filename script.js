@@ -32,25 +32,35 @@ function printRecipe(response, searchAmount, list){
 }
 
 $("#searchhere").on("click", function () {
-    var searchHealth = $("input:checked").val();
+    var searchHealth = health_label();
     console.log(searchHealth);
-    if (typeof searchHealth === "undefined") {
-        searchHealth = "";
-    } else {
-        searchHealth = "&health=" + searchHealth;
-    }
+    var searchDiet = diet_label();
+    console.log(searchDiet);
     var searchq = $("#search").val(),
         searchAmount = $("#chooseamount option:selected").text();
     recipe(searchq, searchAmount, searchHealth);
-    diet_health();
 });
 
-function diet_health() {
-    if ($('#gluten-free').is(":checked"))
-        {
-            console.log("test");
-        }
-    else{
-        console.log("ej test");
+function health_label() {
+    health_labels = $(".health_label:checked").map(function(){
+        return this.value;
+    }).get().join('%20');
+    if (health_labels == "") {
+        health_labels = "";
+    } else {
+        health_labels = "&health=" + health_labels;
     }
+    return health_labels;
+}
+
+function diet_label() {
+    diet_labels = $(".diet_label:checked").map(function(){
+        return this.value;
+    }).get().join('%20');
+    if (diet_labels == "") {
+        diet_labels = "";
+    } else {
+        diet_labels = "&diet=" + diet_labels;
+    }
+    return diet_labels;
 }
