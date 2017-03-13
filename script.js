@@ -15,13 +15,20 @@ function recipe(searchq, searchAmount, searchHealth) {
                 searchrecipe = response.hits[0].recipe.ingredientLines[i];
                 list += "<p>" + searchrecipe + "</p>";
             }
-            $("#recipe-text").html(list);
-            searchlabel = response.hits[0].recipe.label;
-            $("#recipe-label").html(searchlabel);
-            searchimg = response.hits[0].recipe.image;
-            $("#recipe-img").attr("src", searchimg);
+			printRecipe(response, searchAmount, list)
         }
     });
+}
+
+function printRecipe(response, searchAmount, list){
+	console.log(searchAmount)
+	for(i = 0; i < searchAmount.length; i++){
+		$("#recipe-text").html(list);
+		searchlabel = response.hits[0].recipe.label;
+		$("#recipe-label").html(searchlabel);
+		searchimg = response.hits[0].recipe.image;
+		$("#recipe-img").attr("src", searchimg);
+	}
 }
 
 $("#searchhere").on("click", function () {
