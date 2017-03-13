@@ -8,16 +8,16 @@ function recipe(searchq, searchAmount, searchHealth) {
         },
         success: function (response) {
             console.log(response);
-            var x = response.hits[0].recipe.ingredientLines,
-                searchRecipe = "",
-                searchLabel = "",
-                searchImg = "";
-            for (i = 0; i < x.length; i++) {
-                searchRecipe = response.hits[0].recipe.ingredientLines[i];
-                $("#recipe-text").append("<h4 class='media-heading' id='recipe-label'>" + searchRecipe + "</h4>");
+            var i;
+            var list = "";
+            var x = response.hits[0].recipe.ingredientLines;
+            for (i = 0; i < x.length; i++){
+                list = "";
+                searchrecipe = response.hits[0].recipe.ingredientLines[i];
+                $("#recipe-text").append("<p>" + searchrecipe + "</p>");
             }
-            searchLabel = response.hits[0].recipe.label;
-            $("#recipe-label").replaceWith(searchLabel);
+            searchlabel = response.hits[0].recipe.label;
+            $("#recipe-label").append(searchlabel);
             searchimg = response.hits[0].recipe.image;
             $("#recipe-img").attr("src", searchimg);
         }
