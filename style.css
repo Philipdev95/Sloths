@@ -20,6 +20,9 @@ body{
 .amount{
     text-align: center;
 }
+#searchhere{
+    text-align: center;
+}
 #chooseamount{
     color: #000;
 }
