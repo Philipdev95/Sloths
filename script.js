@@ -1,7 +1,7 @@
 function recipe(searchq, searchAmount, searchHealth) {
     $.ajax({
         type: "GET",
-        url: "https://api.edamam.com/search?q=" + searchq + "&to=" + searchAmount + searchHealth + "/",
+        url: "https://api.edamam.com/search?q=" + searchq + "&to=" + searchAmount + "&" + searchHealth + "",
         dataType: "json",
         error: function (response) {
             alert('Error: There was a problem processing your request, please refresh the browser and try again');
@@ -24,7 +24,7 @@ function recipe(searchq, searchAmount, searchHealth) {
     });
 }
 
-$("#searchButton").on("click", function () {
+$("#searchhere").on("click", function () {
     var searchHealth = $("input:checked").val();
     console.log(searchHealth);
     if (typeof searchHealth === "undefined") {

@@ -2,7 +2,7 @@
 function recipe() {
     $.ajax({
         type: "GET",
-        url: "http://food2fork.com/api/search?key={API_KEY}&q=shredded%20chicken",
+        url: "http://food2fork.com/api/search?key=dc917f10eccf1cb8db52300f272fbbfa&count=1&q=shredded%20chicken",
         dataType: "json",
         error: function (response) {
             alert('Error: There was a problem processing your request, please refresh the browser and try again');
@@ -10,9 +10,10 @@ function recipe() {
         success: function (response) {
             console.log(response);
             var searchWord = "",
-                searchAmount = "";
-            
-            $("#recipe-div").append("<h4 class='media-heading' id='recipe-label'>" +  + "</h4>");
+                searchAmount = "",
+                title = response.title;
+            $("#recipe-div").append("<h4 class='media-heading' id='recipe-label'>" + title + "</h4>");
         }
     });
 }
+recipe();
