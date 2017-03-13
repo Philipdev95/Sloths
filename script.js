@@ -12,12 +12,13 @@ function recipe(searchq, searchAmount, searchHealth) {
             var list = "";
             var x = response.hits[0].recipe.ingredientLines;
             for (i = 0; i < x.length; i++){
-                list = "";
                 searchrecipe = response.hits[0].recipe.ingredientLines[i];
-                $("#recipe-text").append("<p>" + searchrecipe + "</p>");
+                list += "<p>" + searchrecipe + "</p>";
+                console.log(list);
             }
+            $("#recipe-text").replaceWith(list);
             searchlabel = response.hits[0].recipe.label;
-            $("#recipe-label").append(searchlabel);
+            $("#recipe-label").replaceWith(searchlabel);
             searchimg = response.hits[0].recipe.image;
             $("#recipe-img").attr("src", searchimg);
         }
