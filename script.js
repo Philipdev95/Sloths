@@ -16,9 +16,9 @@ function recipe(searchq, searchAmount, searchHealth) {
                 list += "<p>" + searchrecipe + "</p>";
                 console.log(list);
             }
-            $("#recipe-text").replaceWith(list);
+            $("#recipe-text").html(list);
             searchlabel = response.hits[0].recipe.label;
-            $("#recipe-label").replaceWith(searchlabel);
+            $("#recipe-label").html(searchlabel);
             searchimg = response.hits[0].recipe.image;
             $("#recipe-img").attr("src", searchimg);
         }
