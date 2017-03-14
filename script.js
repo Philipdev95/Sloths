@@ -13,6 +13,14 @@ function printRecipe(response, searchAmount, list) {
     console.log("loopen körs: " + i + "gånger.");
 }
 
+function random(response, searchAmount){
+	var count = response.count;
+	console.log(count);
+	for var (i = searchAmount; i>0; i--){
+		1 + Math.floor(Math.random() * count);
+	}
+}
+
 function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
     $.ajax({
         type: "GET",
