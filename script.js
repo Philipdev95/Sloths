@@ -13,10 +13,27 @@ function printRecipe(response, searchAmount, list) {
     console.log("loopen körs: " + i + "gånger.");
 }
 
-function recipe(searchq, searchAmount, searchHealth, searchDiet) {
+function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
     $.ajax({
         type: "GET",
-        url: "https://api.edamam.com/search?q=" + searchq + "&to=" + searchAmount + searchHealth + searchDiet,
+        url: "https://api.edamam.com/search?q=" + searchq + "&to=1" + searchHealth + searchDiet,
+        dataType: "json",
+        error: function (response) {
+            alert('Error: There was a problem processing your request, please refresh the browser and try again');
+        },
+        success: function (response) {
+            searchFrom = random(searchAmount);
+            console.log(response);
+            searchTo = parseInt(searchFrom) + parseInt(searchAmount);
+            recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet);
+        }
+    });
+}
+
+function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet) {
+    $.ajax({
+        type: "GET",
+        url: "https://api.edamam.com/search?q=" + searchq + "&from=" + searchFrom + "&to=" + searchTo + searchHealth + searchDiet,
         dataType: "json",
         error: function (response) {
             alert('Error: There was a problem processing your request, please refresh the browser and try again');
@@ -30,6 +47,7 @@ function recipe(searchq, searchAmount, searchHealth, searchDiet) {
                 var searchrecipe = response.hits[0].recipe.ingredientLines[i];
                 list += "<p>" + searchrecipe + "</p>";
             }
+            searchAmount = searchTo - searchFrom;
 			printRecipe(response, searchAmount, list);
         }
     });
@@ -42,8 +60,7 @@ $("#searchhere").on("click", function () {
         searchAmount = $("#chooseamount option:selected").text();
     console.log(searchHealth);
     console.log(searchDiet);
-
-    recipe(searchq, searchAmount, searchHealth, searchDiet);
+    recipecount(searchq, searchAmount, searchHealth, searchDiet);
 });
 
 function health_label() {
