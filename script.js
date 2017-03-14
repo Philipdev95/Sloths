@@ -16,9 +16,9 @@ function printRecipe(response, searchAmount, list) {
 function random(response, searchAmount){
 	var count = response.count;
 	console.log(count);
-	for (var i = searchAmount; i>0; i--){
-		1 + Math.floor(Math.random() * count);
-	}
+	var number = 1 + Math.floor(Math.random() * count);
+	console.log(number);
+	return number;
 }
 
 function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
