@@ -17,6 +17,11 @@ function random(response, searchAmount){
 	var count = response.count;
 	console.log(count);
 	var number = 1 + Math.floor(Math.random() * count);
+    number = 999;
+    console.log(number);
+    if (number >= 993){
+        number = number - 7;//kanske fixar senare
+    };
 	console.log(number);
 	return number;
 }
