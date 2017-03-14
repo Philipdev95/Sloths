@@ -24,13 +24,13 @@ function random(response, searchAmount){
 function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
     $.ajax({
         type: "GET",
-        url: "https://api.edamam.com/search?q=" + searchq + "&to=1" + searchHealth + searchDiet,
+        url: "https://api.edamam.com/search?q=" + searchq + searchHealth + searchDiet,
         dataType: "json",
         error: function (response) {
             alert('Error: There was a problem processing your request, please refresh the browser and try again');
         },
         success: function (response) {
-            searchFrom = random(searchAmount);
+            searchFrom = random(response);
             console.log(response);
             searchTo = parseInt(searchFrom) + parseInt(searchAmount);
             recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet);
