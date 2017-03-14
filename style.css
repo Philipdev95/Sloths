@@ -10,18 +10,19 @@ body{
     margin: 0;
 }
 .radi-back{
-  background: #FFAE09;
-  background: -webkit-linear-gradient(left top, #FFAE09, yellow);
-  background: -o-linear-gradient(bottom right, #FFAE09, yellow);
-  background: -moz-linear-gradient(bottom right, #FFAE09, yellow);
-  background: linear-gradient(to bottom right, #FFAE09, yellow);
+  background: #ffaf4b;
+  background: -webkit-linear-gradient(top, #ffce93, #ff920a);
+  background: -o-linear-gradient(bottom, #ffce93, #ff920a);
+  background: -moz-linear-gradient(bottom, #ffce93, #ff920a);
+  background: linear-gradient(to bottom, #ffce93, #ff920a);
 }
 .header{
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Playfair Display', serif;
     padding: 5px 0 15px 0;
     text-align: center;
-    background: #FFAE09;
+    
     color: #fff;
+    box-shadow: 0px 0px 30px 1px #888;
 }
 label, .grey{
     color: #777;
