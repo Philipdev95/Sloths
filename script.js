@@ -33,12 +33,12 @@ function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
             searchFrom = random(response);
             console.log(response);
             searchTo = parseInt(searchFrom) + parseInt(searchAmount);
-            recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet);
+            recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount);
         }
     });
 }
 
-function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet) {
+function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount) {
     $.ajax({
         type: "GET",
         url: "https://api.edamam.com/search?q=" + searchq + "&from=" + searchFrom + "&to=" + searchTo + searchHealth + searchDiet,
@@ -55,7 +55,6 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet) {
                 var searchrecipe = response.hits[0].recipe.ingredientLines[i];
                 list += "<p>" + searchrecipe + "</p>";
             }
-            searchAmount = searchTo - searchFrom;
 			printRecipe(response, searchAmount, list);
         }
     });
