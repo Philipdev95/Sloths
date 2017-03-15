@@ -1,8 +1,8 @@
 window.onload = function () {
-    var y = 0;
+    var o = 0;
     for (var key in localStorage){
-        var recipe = localStorage.getItem(y);
-        y++;
+        var recipe = localStorage.getItem(o);
+        o++;
         $(".recipe").append(recipe);
     }
 };
