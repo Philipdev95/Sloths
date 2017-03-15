@@ -19,14 +19,14 @@ function printRecipe(response) {
             list += "<p>" + searchrecipe + "</p>";
         }
         all_list +=  "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>";
+        saveRecipe(searchimg, searchlabel, list, i);
 	}
 
-    saveRecipe(searchimg, searchlabel, list);
     $(".recipe").append(all_list);
     console.log("loopen körs: " + i + "gånger.");
 }
-function saveRecipe(searchimg, searchlabel, list) {
-    localStorage.setItem("Recipe1", "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "'</h4> <p>'" + list + "'</p> </div> </div>");
+function saveRecipe(searchimg, searchlabel, list, i) {
+    localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>");
 }
 
 function random(response, searchAmount) {
@@ -83,7 +83,7 @@ $("#searchhere").on("click", function () {
 function health_label() {
     health_labels = $(".health_label:checked").map(function () {
         return this.value;
-    }).get().join(",%20");
+    }).get().join(",");
     if (health_labels === "") {
         health_labels = "";
     } else {
@@ -95,7 +95,7 @@ function health_label() {
 function diet_label() {
     var diet_labels = $(".diet_label:checked").map(function () {
         return this.value;
-    }).get().join(",%20");
+    }).get().join(",");
     if (diet_labels === "") {
         diet_labels = "";
     } else {
