@@ -75,7 +75,7 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchA
 }
 
 function storeLimit(){
-	if(var key in localStorage == 7){
+	if(key in localStorage == 7){
 		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!")
 	}
 }
