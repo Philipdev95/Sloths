@@ -1,6 +1,7 @@
-/*function saveRecipe() {
-    
-}*/
+window.onload = function () {
+    var recipe = localStorage.getItem("Recipe1");
+    $(".recipe").append(recipe);
+}
 function printRecipe(response, searchAmount, list) {
 	console.log(searchAmount);
 	for (i = 0; i < searchAmount.length; i++) {
@@ -12,7 +13,11 @@ function printRecipe(response, searchAmount, list) {
         
         $(".recipe").append("<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>");
 	}
+    saveRecipe(searchimg, searchlabel, list);
     console.log("loopen körs: " + i + "gånger.");
+}
+function saveRecipe(searchimg, searchlabel, list) {
+    localStorage.setItem("Recipe1", "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "'</h4> <p>'" + list + "'</p> </div> </div>");
 }
 
 function random(response, searchAmount) {
