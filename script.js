@@ -4,8 +4,7 @@ window.onload = function () {
 };
 function printRecipe(response) {
 	console.log(response);
-    var i,
-        all_list = "",
+    var all_list = "",
         y = response.hits;
 	for (i = 0; i < y.length; i++) {
 		searchlabel = response.hits[i].recipe.label;
