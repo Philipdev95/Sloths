@@ -1,3 +1,6 @@
+function saveRecipe() {
+    
+}
 function printRecipe(response, searchAmount, list) {
 	console.log(searchAmount);
 	for (i = 0; i < searchAmount.length; i++) {
@@ -7,16 +10,15 @@ function printRecipe(response, searchAmount, list) {
 		searchimg = response.hits[i].recipe.image;
 		//$("#recipe-img").attr("src", searchimg);
         
-        $(".recipe").append("<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>"
-            );
+        $(".recipe").append("<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>");
 	}
     console.log("loopen körs: " + i + "gånger.");
 }
 
 function random(response, searchAmount){
-	var count = response.count;
-	console.log(count);
-	var number = 1 + Math.floor(Math.random() * count);
+	var count = response.count,
+        number = 1 + Math.floor(Math.random() * count);
+    console.log(count);
 	console.log(number);
 	return number;
 }
