@@ -1,6 +1,6 @@
-function saveRecipe() {
+/*function saveRecipe() {
     
-}
+}*/
 function printRecipe(response, searchAmount, list) {
 	console.log(searchAmount);
 	for (i = 0; i < searchAmount.length; i++) {
@@ -15,11 +15,15 @@ function printRecipe(response, searchAmount, list) {
     console.log("loopen körs: " + i + "gånger.");
 }
 
-function random(response, searchAmount){
+function random(response, searchAmount) {
 	var count = response.count,
         number = 1 + Math.floor(Math.random() * count);
+    number = 999;
     console.log(count);
-	console.log(number);
+    console.log(number);
+    if (number >= 993) {
+        number = number - 7;//kanske fixar senare
+    }
 	return number;
 }
 
@@ -35,12 +39,12 @@ function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
             searchFrom = random(response);
             console.log(response);
             searchTo = parseInt(searchFrom) + parseInt(searchAmount);
-            recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet);
+            recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount);
         }
     });
 }
 
-function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet) {
+function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount) {
     $.ajax({
         type: "GET",
         url: "https://api.edamam.com/search?q=" + searchq + "&from=" + searchFrom + "&to=" + searchTo + searchHealth + searchDiet,
@@ -57,7 +61,6 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet) {
                 var searchrecipe = response.hits[0].recipe.ingredientLines[i];
                 list += "<p>" + searchrecipe + "</p>";
             }
-            searchAmount = searchTo - searchFrom;
 			printRecipe(response, searchAmount, list);
         }
     });
