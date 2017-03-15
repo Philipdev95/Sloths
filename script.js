@@ -13,9 +13,9 @@ function printRecipe(response) {
         console.log(i);
         var p,
             list = "",
-            x = response.hits[0].recipe.ingredientLines;
+            x = response.hits[i].recipe.ingredientLines;
         for (p = 0; p < x.length; p++) {
-            var searchrecipe = response.hits[0].recipe.ingredientLines[p];
+            var searchrecipe = response.hits[i].recipe.ingredientLines[p];
             list += "<p>" + searchrecipe + "</p>";
         }
         all_list +=  "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>";
