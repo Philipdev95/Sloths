@@ -80,12 +80,13 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchA
 }
 
 function storeLimit(){
-	if(key in localStorage == 7){
+	if(localStorage.length == 7){
 		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!")
 	}
 }
 
 $("#searchhere").on("click", function () {
+	storeLimit();
     var searchHealth = health_label(),
         searchDiet = diet_label(),
         searchq = $("#search").val(),
