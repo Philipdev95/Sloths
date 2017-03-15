@@ -1,6 +1,10 @@
 window.onload = function () {
-    var recipe = localStorage.getItem("Recipe1");
-    $(".recipe").append(recipe);
+    var y = 0;
+    for (var key in localStorage){
+        var recipe = localStorage.getItem(y);
+        y++;
+        $(".recipe").append(recipe);
+    }
 };
 function printRecipe(response) {
 	console.log(response);
@@ -20,7 +24,6 @@ function printRecipe(response) {
         all_list +=  "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>";
         saveRecipe(searchimg, searchlabel, list, i);
 	}
-
     $(".recipe").append(all_list);
     console.log("loopen körs: " + i + "gånger.");
 }
