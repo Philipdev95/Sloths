@@ -71,6 +71,12 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchA
     });
 }
 
+function storeLimit(){
+	if(var key in localStorage == 7){
+		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!")
+	}
+}
+
 $("#searchhere").on("click", function () {
     var searchHealth = health_label(),
         searchDiet = diet_label(),
