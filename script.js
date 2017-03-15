@@ -1,24 +1,15 @@
-<<<<<<< HEAD
 window.onload = function () {
     var recipe = localStorage.getItem("Recipe1");
     $(".recipe").append(recipe);
-}
-function printRecipe(response, searchAmount, list) {
-	console.log(searchAmount);
-	for (i = 0; i < searchAmount.length; i++) {
-=======
+};
 function printRecipe(response) {
-	console.log(response)
+	console.log(response);
     var i,
         all_list = "",
         y = response.hits;
 	for (i = 0; i < y.length; i++) {
->>>>>>> origin/master
-		//$("#recipe-text").html(list);
 		searchlabel = response.hits[i].recipe.label;
-		//$("#recipe-label").html(searchlabel);
 		searchimg = response.hits[i].recipe.image;
-		//$("#recipe-img").attr("src", searchimg);
         console.log(i);
         var p,
             list = "",
@@ -38,7 +29,7 @@ function saveRecipe(searchimg, searchlabel, list) {
     localStorage.setItem("Recipe1", "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "'</h4> <p>'" + list + "'</p> </div> </div>");
 }
 
-function random(response, searchAmount){
+function random(response, searchAmount) {
 	var count = response.count;
 	console.log(count);
 	var number = 1 + Math.floor(Math.random() * count);
