@@ -28,10 +28,9 @@ function random(response, searchAmount){
 	console.log(count);
 	var number = 1 + Math.floor(Math.random() * count);
     console.log(number);
-    if (number >= 993){
+    if (number >= 993) {
         number = number - 7;//kanske fixar senare
-    };
-	console.log(number);
+    }
 	return number;
 }
 
