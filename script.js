@@ -9,8 +9,13 @@ window.onload = function () {
 function printRecipe(response) {
 	console.log(response);
     var all_list = "",
-        y = response.hits;
-	for (i = 0; i < y.length; i++) {
+        storageLength = localStorage.length,
+        //y = response.hits;
+        y = 7 - storageLength; 
+    console.log(localStorage.length);
+    console.log(storageLength);
+    console.log(y);
+	for (i = 0; i < y; i++) {
 		searchlabel = response.hits[i].recipe.label;
 		searchimg = response.hits[i].recipe.image;
         console.log(i);
@@ -81,7 +86,7 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchA
 
 function storeLimit(){
 	if(localStorage.length == 7){
-		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!")
+		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
 	}
 }
 
