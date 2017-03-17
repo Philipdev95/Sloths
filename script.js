@@ -58,6 +58,9 @@ function saveRecipe(searchimg, searchlabel, list, i) {
 function random(response, searchAmount) {
 	var count = response.count;
 	console.log(count);
+	if(count == 0){
+		alert("Det fanns inga recept som matchade din sökning! Prova att ändra din sökning!");
+	}
 	var number = 1 + Math.floor(Math.random() * count);
     console.log(number);
     if (number >= 993) {
@@ -80,19 +83,17 @@ function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
             console.log(response);
             searchTo = parseInt(searchFrom) + parseInt(searchAmount);
             recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount);
-            
-        if 
-        }
+		}
     });
 }
 
-function search_error() {
+/*function search_error() {
     try {
     $("#searchhere").on("click", function ();
 }
 catch(err) {
     alert("Fanns inga recept med det namnet, prova en annan sökterm!");
-}
+}*/
 
 function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount) {
     $.ajax({
@@ -125,7 +126,7 @@ $("#searchhere").on("click", function () {
     recipecount(searchq, searchAmount, searchHealth, searchDiet);
 });
     
-}
+
 
 $(".trashbin").on("click", function () {
     
