@@ -80,18 +80,8 @@ function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
             console.log(response);
             searchTo = parseInt(searchFrom) + parseInt(searchAmount);
             recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount);
-            
-        if 
         }
     });
-}
-
-function search_error() {
-    try {
-    $("#searchhere").on("click", function ();
-}
-catch(err) {
-    alert("Fanns inga recept med det namnet, prova en annan sökterm!");
 }
 
 function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount) {
