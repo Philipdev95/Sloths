@@ -33,7 +33,6 @@ function printRecipe(response) {
             var searchrecipe = response.hits[i].recipe.ingredientLines[p];
             list += "<p>" + searchrecipe + "</p>";
         }
-        all_list +=  "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>";
         saveRecipe(searchimg, searchlabel, list, i);
 	}
     for (var key in localStorage){
@@ -53,7 +52,7 @@ function saveRecipe(searchimg, searchlabel, list, i) {
         u=6;
     }
     console.log(u);
-    localStorage.setItem(u, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>");
+    localStorage.setItem(u, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<span class='glyphicon glyphicon-trash trashbin'></span></h4> <p>" + list + "</p> </div> </div>");
 }
 
 function random(response, searchAmount) {
@@ -112,6 +111,10 @@ $("#searchhere").on("click", function () {
         searchq = $("#search").val(),
         searchAmount = $("#chooseamount option:selected").text();
     recipecount(searchq, searchAmount, searchHealth, searchDiet);
+});
+
+$(".trashbin").on("click", function () {
+    
 });
 
 function health_label() {
