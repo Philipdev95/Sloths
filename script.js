@@ -56,10 +56,14 @@ function saveRecipe(searchimg, searchlabel, list, i) {
 }
 
 function random(response, searchAmount) {
-	var count = response.count;
+	//var count = response.count;
+	var count = 1;
 	console.log(count);
 	if(count == 0){
 		alert("Det fanns inga recept som matchade din sökning! Prova att ändra din sökning!");
+	}
+	else if(count != 0 & count < searchAmount){//funkar ej
+		alert("Det fanns inte så många recept som du ville ha!");
 	}
 	var number = 1 + Math.floor(Math.random() * count);
     console.log(number);
