@@ -6,16 +6,23 @@ window.onload = function () {
         $(".recipe").append(recipe);
     }
 };
+
+function localstoragelength(){
+    var q = 0;
+    for (var key in localStorage){
+        var recipe = localStorage.getItem(q);
+        q++;
+    }
+    return q;
+}
+
 function printRecipe(response) {
 	console.log(response);
+    storageamount = localstoragelength();
     var all_list = "",
-        storageLength = localStorage.length,
-        //y = response.hits;
-        y = 7 - storageLength; 
-    console.log(localStorage.length);
-    console.log(storageLength);
+        y = response.hits;
     console.log(y);
-	for (i = 0; i < y; i++) {
+	for (i = 0; i < y.length; i++) {
 		searchlabel = response.hits[i].recipe.label;
 		searchimg = response.hits[i].recipe.image;
         console.log(i);
@@ -29,16 +36,24 @@ function printRecipe(response) {
         all_list +=  "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>";
         saveRecipe(searchimg, searchlabel, list, i);
 	}
-    var o = 0;
     for (var key in localStorage){
-        var recipe = localStorage.getItem(o);
-        o++;
+        var recipe = localStorage.getItem(storageamount);
+        console.log(storageamount);
+        storageamount++;
         $(".recipe").append(recipe);
     };
     console.log("loopen körs: " + i + "gånger.");
 }
 function saveRecipe(searchimg, searchlabel, list, i) {
-    localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>");
+    var u = 0;
+    for(var key in localStorage){
+        u++;
+    }
+    if (u >= 7){
+        u=6;
+    }
+    console.log(u);
+    localStorage.setItem(u, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "</h4> <p>" + list + "</p> </div> </div>");
 }
 
 function random(response, searchAmount) {
