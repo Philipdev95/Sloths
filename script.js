@@ -42,7 +42,7 @@ function printRecipe(response) {
         $(".recipe").append(recipe);
     };
     console.log("loopen körs: " + i + "gånger.");
-}
+    }
 function saveRecipe(searchimg, searchlabel, list, i) {
     var u = 0;
     for(var key in localStorage){
@@ -80,8 +80,18 @@ function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
             console.log(response);
             searchTo = parseInt(searchFrom) + parseInt(searchAmount);
             recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount);
+            
+        if 
         }
     });
+}
+
+function search_error() {
+    try {
+    $("#searchhere").on("click", function ();
+}
+catch(err) {
+    alert("Fanns inga recept med det namnet, prova en annan sökterm!");
 }
 
 function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount) {
@@ -113,6 +123,8 @@ $("#searchhere").on("click", function () {
         searchAmount = $("#chooseamount option:selected").text();
     recipecount(searchq, searchAmount, searchHealth, searchDiet);
 });
+    
+}
 
 $(".trashbin").on("click", function () {
     
