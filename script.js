@@ -75,6 +75,7 @@ function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
             alert('Error: There was a problem processing your request, please refresh the browser and try again');
         },
         success: function (response) {
+			$("#loader").css("display", "block");
             searchFrom = random(response);
             console.log(response);
             searchTo = parseInt(searchFrom) + parseInt(searchAmount);
