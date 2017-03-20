@@ -109,7 +109,6 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchA
         },
         success: function (response) {
 			printRecipe(response);
-            console.log("klart");
 			$("#loader").css("display", "none");
         }
     });
@@ -129,7 +128,6 @@ $("#searchhere").on("click", function () {
     }
     if (fullamount < 7){
         searchAmount = fullamount - localStorage.length;
-        console.log(searchAmount);
         recipecount(searchq, searchAmount, searchHealth, searchDiet);
     }
     else{
