@@ -39,7 +39,6 @@ function printRecipe(response) {
         storageamount++;
         $(".recipe").append(recipe);
     };
-    console.log("loopen körs: " + i + "gånger.");
     };
 
 function saveRecipe(searchimg, searchlabel, list, i) {
@@ -84,10 +83,8 @@ function random(response, searchAmount) {
 	}
 	var number = 1 + Math.floor(Math.random() * count);
 	parseInt(number);
-    console.log(number);
     if (number >= count) {
         number = number - 7;
-		console.log(number);
     }
 	return number;
 };
