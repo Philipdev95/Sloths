@@ -1,10 +1,12 @@
 window.onload = function () {
-    var o = 0;
-    for (var key in localStorage){
-        var recipe = localStorage.getItem(o);
-        o++;
-        $(".recipe").append(recipe);
+    var archive = [],
+        keys = Object.keys(localStorage),
+        i = 0, key;
+
+    for (; key = keys[i]; i++) {
+        archive.push(localStorage.getItem(key));
     }
+    $(".recipe").append(archive);
 };
 
 function localstoragelength(){
@@ -17,15 +19,12 @@ function localstoragelength(){
 }
 
 function printRecipe(response) {
-	console.log(response);
     storageamount = localstoragelength();
     var all_list = "",
         y = response.hits;
-    console.log(y);
 	for (i = 0; i < y.length; i++) {
 		searchlabel = response.hits[i].recipe.label;
 		searchimg = response.hits[i].recipe.image;
-        console.log(i);
         var p,
             list = "",
             x = response.hits[i].recipe.ingredientLines;
@@ -37,7 +36,6 @@ function printRecipe(response) {
 	}
     for (var key in localStorage){
         var recipe = localStorage.getItem(storageamount);
-        console.log(storageamount);
         storageamount++;
         $(".recipe").append(recipe);
     };
@@ -51,14 +49,32 @@ function saveRecipe(searchimg, searchlabel, list, i) {
     if (u >= 7){
         u=6;
     }
-    console.log(u);
-    localStorage.setItem(u, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div id=" + u + " class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
+    var archive = [],
+        keys = Object.keys(localStorage),
+        i = 0, key;
+    for (; key = keys[i]; i++) {
+        archive.push( key + localStorage.getItem(key));
+    };
+    var q = 0;
+    if (key == undefined){
+        localStorage.setItem(q, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div id=" + q + " class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
+    }
+    for (key in keys){
+        q++;
+        checkifinarray(q, keys, searchimg, searchlabel, list);
+    };
+}
+
+function checkifinarray(i, keys, searchimg, searchlabel, list){
+    var n = i.toString();
+    if(jQuery.inArray(n, keys) != -1) {
+    } else {
+        localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div id=" + i + " class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
+    }
 }
 
 function random(response, searchAmount) {
 	var count = response.count;
-	console.log(count);
-	console.log(searchAmount);
 	if(count == 0){
 		alert("Det fanns inga recept som matchade din sökning! Prova att ändra din sökning!");
 	}
@@ -66,7 +82,6 @@ function random(response, searchAmount) {
 		alert("Det fanns inte så många recept som du ville ha!");
 	}
 	var number = 1 + Math.floor(Math.random() * count);
-    console.log(number);
     if (number >= 993) {
         number = number - 7;//kanske fixar senare
     }
@@ -84,7 +99,6 @@ function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
         success: function (response) {
 			$("#loader").css("display", "block");
             searchFrom = random(response, searchAmount);
-            console.log(response);
             searchTo = parseInt(searchFrom) + parseInt(searchAmount);
             recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount);
 		}
@@ -100,7 +114,6 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchA
             alert('Error: There was a problem processing your request, please refresh the browser and try again');
         },
         success: function (response) {
-            console.log(response);
 			printRecipe(response);
 			$("#loader").css("display", "none");
         }
