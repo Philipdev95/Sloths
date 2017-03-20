@@ -123,9 +123,6 @@ $("#searchhere").on("click", function () {
 		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
 	}
     fullamount = Number(localStorage.length) + Number(searchAmount);
-    console.log(fullamount);
-    console.log(localStorage.length);
-    console.log(searchAmount);
     if (fullamount > 7){
         alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
     }
