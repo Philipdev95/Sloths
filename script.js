@@ -52,7 +52,7 @@ function saveRecipe(searchimg, searchlabel, list, i) {
         u=6;
     }
     console.log(u);
-    localStorage.setItem(u, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<span id='trashbin' class='glyphicon glyphicon-trash trashbin'></span></h4> <p>" + list + "</p> </div> </div>");
+    localStorage.setItem(u, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div id=" + u + " class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
 }
 
 function random(response, searchAmount) {
@@ -123,9 +123,9 @@ $("#searchhere").on("click", function () {
 });
     
 
-
-$("#trashbin").on("click", function () {
-    alert('hej');
+$("#recipes").on("click", ".trashbin", function () {
+    localStorage.removeItem(this.id);
+    $(this).parent().parent().parent().remove();
 });
 
 function health_label() {
