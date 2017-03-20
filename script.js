@@ -42,13 +42,6 @@ function printRecipe(response) {
     };
 
 function saveRecipe(searchimg, searchlabel, list, i) {
-    var u = 0;
-    for(var key in localStorage){
-        u++;
-    }
-    if (u >= 7){
-        u=6;
-    }
     var archive = [],
         keys = Object.keys(localStorage),
         i = 0, key;
@@ -116,27 +109,34 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchA
         },
         success: function (response) {
 			printRecipe(response);
+            console.log("klart");
 			$("#loader").css("display", "none");
         }
     });
 };
 
-function storeLimit(){
-	if(localStorage.length == 7){
-		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
-	}
-};
-
 $("#searchhere").on("click", function () {
-	storeLimit();
     var searchHealth = health_label(),
         searchDiet = diet_label(),
         searchq = $("#search").val(),
         searchAmount = $("#chooseamount option:selected").text();
-    recipecount(searchq, searchAmount, searchHealth, searchDiet);
+    if(localStorage.length == 7){
+		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
+	}
+    fullamount = Number(localStorage.length) + Number(searchAmount)
+    if (fullamount > 7){
+        alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
+    }
+    if (fullamount < 7){
+        searchAmount = fullamount - localStorage.length;
+        console.log(searchAmount);
+        recipecount(searchq, searchAmount, searchHealth, searchDiet);
+    }
+    else{
+        recipecount(searchq, searchAmount, searchHealth, searchDiet);
+    };
 });
     
-
 $("#recipes").on("click", ".trashbin", function () {
     localStorage.removeItem(this.id);
     $(this).parent().parent().parent().remove();
