@@ -16,7 +16,7 @@ function localstoragelength(){
         q++;
     }
     return q;
-}
+};
 
 function printRecipe(response) {
     storageamount = localstoragelength();
@@ -40,7 +40,8 @@ function printRecipe(response) {
         $(".recipe").append(recipe);
     };
     console.log("loopen körs: " + i + "gånger.");
-    }
+    };
+
 function saveRecipe(searchimg, searchlabel, list, i) {
     var u = 0;
     for(var key in localStorage){
@@ -63,7 +64,7 @@ function saveRecipe(searchimg, searchlabel, list, i) {
         q++;
         checkifinarray(q, keys, searchimg, searchlabel, list);
     };
-}
+};
 
 function checkifinarray(i, keys, searchimg, searchlabel, list){
     var n = i.toString();
@@ -71,22 +72,25 @@ function checkifinarray(i, keys, searchimg, searchlabel, list){
     } else {
         localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div id=" + i + " class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
     }
-}
+};
 
 function random(response, searchAmount) {
 	var count = response.count;
 	if(count == 0){
-		alert("Det fanns inga recept som matchade din sökning! Prova att ändra din sökning!");
+		alert("Det fanns inga recept som matchade din sökning! Prova att ändra sökningen!");
 	}
 	if(count != 0 & count < searchAmount){
 		alert("Det fanns inte så många recept som du ville ha!");
 	}
 	var number = 1 + Math.floor(Math.random() * count);
-    if (number >= 993) {
-        number = number - 7;//kanske fixar senare
+	parseInt(number);
+    console.log(number);
+    if (number >= count) {
+        number = number - 7;
+		console.log(number);
     }
 	return number;
-}
+};
 
 function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
     $.ajax({
@@ -103,7 +107,7 @@ function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
             recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount);
 		}
     });
-}
+};
 
 function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount) {
     $.ajax({
@@ -118,13 +122,13 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchA
 			$("#loader").css("display", "none");
         }
     });
-}
+};
 
 function storeLimit(){
 	if(localStorage.length == 7){
 		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
 	}
-}
+};
 
 $("#searchhere").on("click", function () {
 	storeLimit();
@@ -151,7 +155,7 @@ function health_label() {
         health_labels = "&health=" + health_labels;
     }
     return health_labels;
-}
+};
 
 function diet_label() {
     var diet_labels = $(".diet_label:checked").map(function () {
@@ -163,4 +167,4 @@ function diet_label() {
         diet_labels = "&diet=" + diet_labels;
     }
     return diet_labels;
-}
+};
