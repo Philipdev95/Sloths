@@ -58,6 +58,7 @@ function saveRecipe(searchimg, searchlabel, list, i) {
 function random(response, searchAmount) {
 	var count = response.count;
 	console.log(count);
+	parseInt(searchAmount);
 	console.log(searchAmount);
 	if(count == 0){
 		alert("Det fanns inga recept som matchade din sökning! Prova att ändra din sökning!");
@@ -66,9 +67,11 @@ function random(response, searchAmount) {
 		alert("Det fanns inte så många recept som du ville ha!");
 	}
 	var number = 1 + Math.floor(Math.random() * count);
+	parseInt(number);
     console.log(number);
-    if (number >= 993) {
-        number = number - 7;//kanske fixar senare
+    if (number >= count) {
+        number = number - 7;
+		console.log(number);
     }
 	return number;
 }
