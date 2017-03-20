@@ -70,16 +70,19 @@ function random(response, searchAmount) {
 	var count = response.count;
 	if(count == 0){
 		alert("Det fanns inga recept som matchade din sökning! Prova att ändra sökningen!");
+        return "notWorking";
 	}
 	if(count != 0 & count < searchAmount){
 		alert("Det fanns inte så många recept som du ville ha!");
+        return "notWorking";
 	}
-	var number = 1 + Math.floor(Math.random() * count);
-	parseInt(number);
-    if (number >= count) {
-        number = number - 7;
+	else {var number = 1 + Math.floor(Math.random() * count);
+        parseInt(number);
+        if (number >= count) {
+            number = number - 7;
+        }
+        return number;
     }
-	return number;
 };
 
 function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
@@ -91,10 +94,15 @@ function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
             alert('Error: There was a problem processing your request, please refresh the browser and try again');
         },
         success: function (response) {
-			$("#loader").css("display", "block");
             searchFrom = random(response, searchAmount);
-            searchTo = parseInt(searchFrom) + parseInt(searchAmount);
-            recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount);
+            if (searchFrom == "notWorking"){
+                
+            }
+            else {
+                $("#loader").css("display", "block");
+                searchTo = parseInt(searchFrom) + parseInt(searchAmount);
+                recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount);
+            }
 		}
     });
 };
@@ -119,6 +127,8 @@ $("#searchhere").on("click", function () {
         searchDiet = diet_label(),
         searchq = $("#search").val(),
         searchAmount = $("#chooseamount option:selected").text();
+    console.log(searchDiet);
+    console.log(searchHealth);
     if(localStorage.length == 7){
 		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
 	}
