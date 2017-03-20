@@ -61,7 +61,7 @@ function random(response, searchAmount) {
 	parseInt(searchAmount);
 	console.log(searchAmount);
 	if(count == 0){
-		alert("Det fanns inga recept som matchade din sökning! Prova att ändra din sökning!");
+		alert("Det fanns inga recept som matchade din sökning! Prova att ändra sökningen!");
 	}
 	if(count != 0 & count < searchAmount){
 		alert("Det fanns inte så många recept som du ville ha!");
