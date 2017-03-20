@@ -123,16 +123,13 @@ $("#searchhere").on("click", function () {
 		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
 	}
     fullamount = Number(localStorage.length) + Number(searchAmount)
-    else if (fullamount > 7){
+    if (fullamount > 7){
         alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
     }
-    else if (fullamount < 7){
+    if (fullamount < 7){
         searchAmount = fullamount - localStorage.length;
         recipecount(searchq, searchAmount, searchHealth, searchDiet);
     }
-    else{
-        recipecount(searchq, searchAmount, searchHealth, searchDiet);
-    };
 });
     
 $("#recipes").on("click", ".trashbin", function () {
