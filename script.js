@@ -56,13 +56,13 @@ function saveRecipe(searchimg, searchlabel, list, i) {
 }
 
 function random(response, searchAmount) {
-	//var count = response.count;
-	var count = 1;
+	var count = response.count;
 	console.log(count);
+	console.log(searchAmount);
 	if(count == 0){
 		alert("Det fanns inga recept som matchade din sökning! Prova att ändra din sökning!");
 	}
-	else if(count != 0 & count < searchAmount){//funkar ej
+	if(count != 0 & count < searchAmount){
 		alert("Det fanns inte så många recept som du ville ha!");
 	}
 	var number = 1 + Math.floor(Math.random() * count);
@@ -83,7 +83,7 @@ function recipecount(searchq, searchAmount, searchHealth, searchDiet) {
         },
         success: function (response) {
 			$("#loader").css("display", "block");
-            searchFrom = random(response);
+            searchFrom = random(response, searchAmount);
             console.log(response);
             searchTo = parseInt(searchFrom) + parseInt(searchAmount);
             recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchAmount);
