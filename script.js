@@ -40,18 +40,19 @@ function printRecipe(response) {
         storageamount++;
         $(".recipe").append(recipe);
     };
-    };
+};
 
 function saveRecipe(searchimg, searchlabel, list, i) {
     var archive = [],
         keys = Object.keys(localStorage),
-        i = 0, key;
+        i = 0, 
+        key;
     for (; key = keys[i]; i++) {
         archive.push( key + localStorage.getItem(key));
     };
     var q = 0;
     if (key == undefined){
-        localStorage.setItem(q, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div id=" + q + " class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
+        checkifinarray(q, keys, searchimg, searchlabel, list);
     }
     for (key in keys){
         q++;
@@ -119,6 +120,7 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchA
         success: function (response) {
 			printRecipe(response);
 			$("#loader").css("display", "none");
+            location.reload();
         }
     });
 };
