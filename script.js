@@ -128,8 +128,6 @@ $("#searchhere").on("click", function () {
         searchDiet = diet_label(),
         searchq = $("#search").val(),
         searchAmount = $("#chooseamount option:selected").text();
-    console.log(searchDiet);
-    console.log(searchHealth);
     if(localStorage.length == 7){
 		alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
         return;
