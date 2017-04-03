@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="initial-scale=1, width=device-width">
-		<title>MAT?</title><link rel="shortcut icon" href="img/Favicon1.jpg" type="image/x-icon" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-		<link href="style.css" rel="stylesheet" id="style">
-        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel="stylesheet"> 
-	</head>
-	<body>
-		<div class="container-fluid">
-            <div class="row header radi-back">
-                <h1 class="col-xs-12">Vad blir det för mat?</h1>
-            </div>
-            <div class="search row">
-                <form>
-                    <div class="col-xs-10 col-xs-offset-1 checkboxes">
-                        <h3 class="grey col-xs-12">Allergier etc.</h3>
-                        <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>MAT?</title>
+    <link rel="shortcut icon" href="img/Favicon1.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" id="style">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row header radi-back">
+            <h1 class="col-xs-12">Vad blir det för mat?</h1>
+        </div>
+        <div class="search row">
+            <form>
+                <div class="col-xs-10 col-xs-offset-1 checkboxes">
+                    <h3 class="grey col-xs-12">Allergier etc.</h3>
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
                             <input type="radio" name="health" value="" class="health_label" checked>
                             Inget
                         </label>
-                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                             <input type="radio" name="health" value="gluten-free" id="gluten-free" class="health_label">
                             Glutenfri
                         </label>
-                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                             <input type="radio" name="health" value="sugar-conscious" id="sugar-conscious" class="health_label">
                             Sockerfri
                         </label>
-                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                             <input type="radio" name="health" value="vegetarian" id="vegetarian" class="health_label">
                             Vegetarisk
                         </label>
-                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                             <input type="radio" name="health" value="dairy-free" id="dairy-free" class="health_label">
                             Laktosfri
                         </label>
-                        <h3 class="grey col-xs-12">Diet</h3>
-                        <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+                    <h3 class="grey col-xs-12">Diet</h3>
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
                             <input type="radio" name="diet" value="" class="diet_label" checked>
                             Inget
                         </label>
-                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                             <input type="radio" name="diet" value="low-fat" id="low-fat" class="diet_label">
                             Fettsnålt
                         </label>
-                        <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <label class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                             <input type="radio" name="diet" value="high-protein" id="high-protein" class="diet_label">
                             Proteinrikt
                         </label>
-                        
-                        
-						<label class="amount col-xs-12">Antal Recept:</label>
-                        <select id="chooseamount" class="amount col-xs-2 col-xs-offset-5 col-md-2" name="amount">
+
+
+                    <label class="amount col-xs-12">Antal Recept:</label>
+                    <select id="chooseamount" class="amount col-xs-2 col-xs-offset-5 col-md-2" name="amount">
                             <option disabled>Antal:</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -64,37 +67,46 @@
                             <option value="6">6</option>
                             <option value="7">7</option>
                         </select>
-                    </div>
-                    <input id="search" class="col-xs-10 col-xs-offset-1" type="text" placeholder="Sökord">
-                    <div class="btn-lg btn-warning col-xs-6 col-xs-offset-3" id="searchhere">
-                        Hitta recept<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    </div>
-                </form>
-            </div>
-			<div class="row">
-                <div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5 ">
-				    <div id="loader" class="col-xs-12"></div>
                 </div>
-			</div>
-            <div class="lines col-xs-12"></div>
-            <br>
-            <div id="recipes" class="recipe row">
-                <h2 class="col-xs-12"><span class="glyphicon glyphicon-list-alt"></span> Senaste recept:</h2>
+                <input id="search" class="col-xs-10 col-xs-offset-1" type="text" placeholder="Sökord">
+                <div class="btn-lg btn-warning col-xs-6 col-xs-offset-3" id="searchhere">
+                    Hitta recept<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5 ">
+                <div id="loader" class="col-xs-12"></div>
+            </div>
+        </div>
+        <div class="lines col-xs-12"></div>
+        <br>
+        <h2 class="col-xs-6"><span class="glyphicon glyphicon-list-alt"></span> Senaste recept:</h2>
+        <h2 class="col-xs-6"><span class="glyphicon glyphicon-list-alt"></span> Favorit recept:</h2>
+        <div id="recipes" class="recipe row">
 
-                <div class= "col-xs-12 recipe-divs media">
-                    
-                </div>
-                
+
+            <div class="col-xs-12 recipe-divs media">
+
             </div>
-			<footer class="col-xs-12">
-				<p class="col-xs-12">
-					&copy; Sloths
-				</p>
-			</footer>
-		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script src="script.js"></script>
-        <script src="style.js"></script>
-	</body>
+
+        </div>
+        <div id="favorites" class="favorite row">
+
+            <div class="col-xs-12 favorite-divs media">
+
+            </div>
+        </div>
+        <footer class="col-xs-12">
+            <p class="col-xs-12">
+                &copy; Sloths
+            </p>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="style.js"></script>
+</body>
+
 </html>
