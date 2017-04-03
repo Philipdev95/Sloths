@@ -7,7 +7,7 @@ window.onload = function () {
     for (; key = keys[i]; i++) {
         archive.push(localStorage.getItem(key));
     }
-    $(".favorite").append(archive);
+    $(".recipe").append(archive);
 };
 
 function localstoragelength() {
@@ -140,7 +140,7 @@ $("#searchhere").on("click", function () {
 
 $("#recipes").on("click", ".star", function () {
 	$(".star").css("color", "yellow");
-    localStorage.setItem("i", $(this).parent().parent().parent().html());
+    localStorage.setItem("0", $(this).parent().parent().parent().html());
 });
 
 $("#recipes").on("click", ".trashbin", function () {
