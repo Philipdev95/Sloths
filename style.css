@@ -16,6 +16,10 @@ body {
     text-align: center;
 }
 
+.right {
+    text-align: right;
+}
+
 .radi-back {
     background: #ffaf4b;
     background: -webkit-linear-gradient(top, #ffce93, #ff920a);
@@ -124,7 +128,8 @@ label {
     font-size: 20px;
 }
 
-.recipe {
+.recipe,
+.favorite {
     padding-bottom: 20px;
     background: #fff;
 }
@@ -149,6 +154,21 @@ footer {
 
 #favorites {
     display: none;
+}
+
+.active {
+    padding: 5% 0 5% 0;
+    margin-top: 0;
+    border-style: solid none none none;
+    border-width: thin;
+    background: #fff;
+}
+
+.tabs {
+    padding: 5% 0 5% 0;
+    margin-top: 0;
+    border: solid #666 thin;
+    background: #ddd;
 }
 
 @media screen and (min-width: 550px) {

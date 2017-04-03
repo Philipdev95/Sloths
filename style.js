@@ -14,3 +14,24 @@ $("#searchhere").click(function () {
     });
     $("#recipe").addClass("radi-back");
 });
+
+$("#latest").click(function () {
+    $("#latest").addClass("active").removeClass("tabs");
+    $("#favo").addClass("tabs").removeClass("active");
+    $("#recipes").css({
+        display: "block"
+    });
+    $("#favorites").css({
+        display: "none"
+    });
+});
+$("#favo").click(function () {
+    $("#favo").addClass("active").removeClass("tabs");
+    $("#latest").addClass("tabs").removeClass("active");
+    $("#recipes").css({
+        display: "none"
+    });
+    $("#favorites").css({
+        display: "block"
+    });
+});
