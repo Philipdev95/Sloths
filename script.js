@@ -33,7 +33,7 @@ function printRecipe(response) {
             var searchrecipe = response.hits[i].recipe.ingredientLines[p];
             list += "<p>" + searchrecipe + "</p>";
         }
-        $(".recipe").append("<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='glyphicon glyphicon-star-empty'</div><div class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
+        $(".recipe").append("<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='star-empty glyphicon glyphicon-star-empty'</div><div class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
     }
 };
 
@@ -58,7 +58,7 @@ function saveRecipe(searchimg, searchlabel, list, i) {
 function checkifinarray(i, keys, searchimg, searchlabel, list) {
     var n = i.toString();
     if (jQuery.inArray(n, keys) != -1) {} else {
-        localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='glyphicon glyphicon-star-empty'</div><div class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
+        localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='star-empty glyphicon glyphicon-star-empty'</div><div class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
     }
 };
 
@@ -136,6 +136,10 @@ $("#searchhere").on("click", function () {
         searchAmount = fullamount - localStorage.length;
         recipecount(searchq, searchAmount, searchHealth, searchDiet);
     }
+});
+
+$("#recipes").on("click", ".star-empty", function () {
+    localStorage.setItem("i", $(this).parent().parent().parent().html());
 });
 
 $("#recipes").on("click", ".trashbin", function () {
