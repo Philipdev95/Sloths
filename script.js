@@ -138,9 +138,8 @@ $("#searchhere").on("click", function () {
     }
 });
 
-$("#favorites").on("click", ".trashbin", function () {
-    localStorage.removeItem(this.id);
-    $(this).parent().parent().parent().remove();
+$("#recipes").on("click", ".trashbin", function () {
+    $(this).parent().parent().parent().parent().remove();
 });
 
 function health_label() {
