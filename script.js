@@ -57,7 +57,7 @@ function saveRecipe(searchimg, searchlabel, list, i) {
 function checkifinarray(i, keys, searchimg, searchlabel, list) {
     var n = i.toString();
     if (jQuery.inArray(n, keys) != -1) {} else {
-        localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='star glyphicon glyphicon-star'</div><div class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
+        localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<span class='star glyphicon glyphicon-star'</span><span class='trashbin glyphicon glyphicon-trash'></span></h4> <p>" + list + "</p> </div> </div>");
     }
 };
 
