@@ -9,6 +9,8 @@ $("#searchhere").click(function () {
 //The function below appears not to work...
 //but its not vital
 $("#searchhere").click(function () {
-    $("#searchhere").css({boxShadow: "0px 0px 10px 0.5px #000"});
+    $("#searchhere").css({
+        boxShadow: "0px 0px 10px 0.5px #000"
+    });
     $("#recipe").addClass("radi-back");
 });
