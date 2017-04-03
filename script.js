@@ -21,8 +21,7 @@ function localstoragelength() {
 
 function printRecipe(response) {
     storageamount = localstoragelength();
-    var all_list = "",
-        y = response.hits;
+    var y = response.hits;
     for (i = 0; i < y.length; i++) {
         searchlabel = response.hits[i].recipe.label;
         searchimg = response.hits[i].recipe.image;
@@ -58,7 +57,7 @@ function saveRecipe(searchimg, searchlabel, list, i) {
 function checkifinarray(i, keys, searchimg, searchlabel, list) {
     var n = i.toString();
     if (jQuery.inArray(n, keys) != -1) {} else {
-        localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='star-empty glyphicon glyphicon-star-empty'</div><div class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
+        localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='star glyphicon glyphicon-star'</div><div class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
     }
 };
 
@@ -139,9 +138,9 @@ $("#searchhere").on("click", function () {
 });
 
 $("#recipes").on("click", ".star", function () {
-	$(".star").css("color", "yellow");
+    $(".star").css("color", "yellow");
     localStorage.setItem("0", $(this).parent().parent().parent().html());
-    $(this).parent().parent().parent().parent().remove();
+    $(this).parent().parent().parent().remove();
 });
 
 $("#recipes").on("click", ".trashbin", function () {
