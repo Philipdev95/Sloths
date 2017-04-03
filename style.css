@@ -1,182 +1,190 @@
-body {
-    background-image: url(img/background/brickwall_@2X.png);
-}
-
-.row {
-    margin-right: 0;
-    margin-left: 0;
-}
-
-.container-fluid {
-    padding: 0;
-    margin: 0;
-}
-
-.center {
-    text-align: center;
-}
-
-.right {
-    text-align: right;
-}
-
-.radi-back {
-    background: #ffaf4b;
-    background: -webkit-linear-gradient(top, #ffce93, #ff920a);
-    background: -o-linear-gradient(bottom, #ffce93, #ff920a);
-    background: -moz-linear-gradient(bottom, #ffce93, #ff920a);
-    background: linear-gradient(to bottom, #ffce93, #ff920a);
-}
-
-.header {
-    font-family: 'Playfair Display', serif;
-    font-size: 100%;
-    padding: 5px 0 15px 0;
-    text-align: center;
-    color: #fff;
-    box-shadow: 0px 0px 30px 1px #888;
-}
-
-.h1 {
-    font-size: 200%;
-}
-
-label,
-.grey {
-    color: #777;
-}
-
-.search {
-    color: white;
-    padding: 20px 0px;
-}
-
-.amount {
-    text-align: center;
-}
-
-#searchhere {
-    text-align: center;
-    transition: 0.5s;
-}
-
-#chooseamount {
-    color: #000;
-}
-
-#search {
-    font-family: 'Open Sans Condensed', sans-serif;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    font-size: 200%;
-    border-radius: 5px;
-    color: #000;
-    text-align: center;
-}
-
-::-webkit-input-placeholder {
-    text-align: center;
-}
-
-:-moz-placeholder {
-    /* Firefox 18- */
-    text-align: center;
-}
-
-::-moz-placeholder {
-    /* Firefox 19+ */
-    text-align: center;
-}
-
-:-ms-input-placeholder {
-    text-align: center;
-}
-
-#loader {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    border: 16px solid #f3f3f3;
-    /* Light grey */
-    border-top: 16px solid #3498db;
-    /* Blue */
-    border-radius: 50%;
-    width: 100%;
-    min-height: 105px;
-    animation: spin 2s linear infinite;
-    margin-top: 1%;
-    display: none;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.lines {
-    background: #ccc;
-    height: 1px;
-    margin: 2% 0px;
-}
-
-label {
-    text-align: left;
-    font-size: 20px;
-}
-
-.recipe,
-.favorite {
-    padding-bottom: 20px;
-    background: #fff;
-}
-
-.recipe-divs h4 {
-    font-size: 25px;
-}
-
-.recipe-divs p {
-    font-size: 18px;
-}
-
-footer {
-    text-align: center;
-    color: #fff;
-    padding: 10px;
-}
-
-.desktop {
-    display: none;
-}
-
-#favorites {
-    display: none;
-}
-
-.active {
-    padding: 5% 0 5% 0;
-    margin-top: 0;
-    border-style: solid none none none;
-    border-width: thin;
-    background: #fff;
-}
-
-.tabs {
-    padding: 5% 0 5% 0;
-    margin-top: 0;
-    border: solid #666 thin;
-    background: #ddd;
-}
-
-@media screen and (min-width: 550px) {
-    label {
-        text-align: center;
-    }
-}
-
-@media screen and (min-width: 768px) {}
-
-@media screen and (min-width: 992px) {}
+                body {
+                background-image: url(img/background/brickwall_@2X.png);
+            }
+            
+            .row {
+                margin-right: 0;
+                margin-left: 0;
+            }
+            
+            .container-fluid {
+                padding: 0;
+                margin: 0;
+            }
+            
+            .center {
+                text-align: center;
+            }
+            
+            .right {
+                text-align: right;
+            }
+            
+            .radi-back {
+                background: #ffaf4b;
+                background: -webkit-linear-gradient(top, #ffce93, #ff920a);
+                background: -o-linear-gradient(bottom, #ffce93, #ff920a);
+                background: -moz-linear-gradient(bottom, #ffce93, #ff920a);
+                background: linear-gradient(to bottom, #ffce93, #ff920a);
+            }
+            
+            .header {
+                font-family: 'Playfair Display', serif;
+                font-size: 100%;
+                padding: 5px 0 15px 0;
+                text-align: center;
+                color: #fff;
+                box-shadow: 0px 0px 30px 1px #888;
+            }
+            
+            .h1 {
+                font-size: 200%;
+            }
+            
+            label,
+            .grey {
+                color: #777;
+            }
+            
+            .search {
+                color: white;
+                padding: 20px 0px;
+            }
+            
+            .amount {
+                text-align: center;
+            }
+            
+            #searchhere {
+                text-align: center;
+                transition: 0.5s;
+            }
+            
+            #chooseamount {
+                color: #000;
+            }
+            
+            #search {
+                font-family: 'Open Sans Condensed', sans-serif;
+                margin-top: 3%;
+                margin-bottom: 3%;
+                font-size: 200%;
+                border-radius: 5px;
+                color: #000;
+                text-align: center;
+            }
+            
+             ::-webkit-input-placeholder {
+                text-align: center;
+            }
+            
+             :-moz-placeholder {
+                /* Firefox 18- */
+                text-align: center;
+            }
+            
+             ::-moz-placeholder {
+                /* Firefox 19+ */
+                text-align: center;
+            }
+            
+             :-ms-input-placeholder {
+                text-align: center;
+            }
+            
+            #loader {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                border: 16px solid #f3f3f3;
+                /* Light grey */
+                border-top: 16px solid #3498db;
+                /* Blue */
+                border-radius: 50%;
+                width: 100%;
+                min-height: 105px;
+                animation: spin 2s linear infinite;
+                margin-top: 1%;
+                display: none;
+            }
+            
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            
+            .lines {
+                background: #ccc;
+                height: 1px;
+                margin: 2% 0px;
+            }
+            
+            label {
+                text-align: left;
+                font-size: 20px;
+            }
+            
+            .recipe,
+            .favorite {
+                padding-bottom: 20px;
+                background: #fff;
+            }
+            
+            .recipe-divs h4 {
+                font-size: 25px;
+            }
+            
+            .recipe-divs p {
+                font-size: 18px;
+            }
+            
+            footer {
+                text-align: center;
+                color: #fff;
+                padding: 10px;
+            }
+            
+            .desktop {
+                display: none;
+            }
+            
+            #favorites {
+                display: none;
+            }
+            
+            .active {
+                padding: 5% 0 5% 0;
+                margin-top: 0;
+                border-style: solid none none none;
+                border-width: thin;
+                background: #fff;
+            }
+            
+            .tabs {
+                padding: 5% 0 5% 0;
+                margin-top: 0;
+                border: solid #666 thin;
+                background: #ddd;
+            }
+            
+            @media screen and (min-width: 550px) {}
+            
+            @media screen and (min-width: 768px) {}
+            
+            @media screen and (min-width: 992px) {
+                .desktop {
+                    display: block;
+                }
+                .mobile {
+                    display: none;
+                }
+                .tabs,
+                .active {
+                    margin-top: 0;
+                    padding: 1% 0 1% 0;
+                    font-size: 200%;
+                }
