@@ -141,10 +141,12 @@ $("#searchhere").on("click", function () {
 $("#recipes").on("click", ".star", function () {
 	$(".star").css("color", "yellow");
     localStorage.setItem("0", $(this).parent().parent().parent().html());
+    $(this).parent().parent().parent().parent().remove();
 });
 
 $("#recipes").on("click", ".trashbin", function () {
     $(this).parent().parent().parent().parent().remove();
+    localStorage.removeItem(this.id);
 });
 
 function health_label() {
