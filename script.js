@@ -146,6 +146,8 @@ $("#recipes").on("click", ".trashbin", function () {
     $(this).parent().parent().parent().parent().remove();
 });
 
+$(.)
+
 function health_label() {
     health_labels = $(".health_label:checked").map(function () {
         return this.value;
