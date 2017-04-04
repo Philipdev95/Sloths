@@ -55,6 +55,7 @@
                 text-align: center;
             }
             
+            
             #searchhere {
                 text-align: center;
                 transition: 0.5s;
@@ -62,8 +63,9 @@
             
             #chooseamount {
                 color: #000;
+                margin-left: 37%;
             }
-            
+
             #search {
                 font-family: 'Open Sans Condensed', sans-serif;
                 margin-top: 3%;
