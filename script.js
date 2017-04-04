@@ -32,7 +32,7 @@ function printRecipe(response) {
             var searchrecipe = response.hits[i].recipe.ingredientLines[p];
             list += "<p>" + searchrecipe + "</p>";
         }
-        $(".recipe").append("<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='star glyphicon glyphicon-star " + i + "'</div><div class='trashbin glyphicon glyphicon-trash " + i + "'></div></h4> <p>" + list + "</p> </div> </div>");
+        $(".recipe").append("<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='star glyphicon glyphicon-star'</div><div class='trashbin glyphicon glyphicon-trash'></div></h4> <p>" + list + "</p> </div> </div>");
     }
 };
 
@@ -145,9 +145,21 @@ $("#recipes").on("click", ".star", function () {
     $(this).parent().parent().parent().remove();
 });
 
-$("#recipes").on("click", ".trashbin", function () {
+$("#favorites").on("click", ".trashbin", function () {
     $(this).parent().parent().parent().parent().remove();
-    localStorage.removeItem(this.id);
+    htmlvalue = $(this).parent().parent().parent().html();
+    console.log(htmlvalue);
+    htmlvalue = "<div class='col-xs-12 favorite-divs media'>" + htmlvalue + "</div>"
+    console.log(htmlvalue);
+    thaht = localStorage.key(htmlvalue);
+    console.log(thaht);
+    for (var i = 0, len = localStorage.length; i < len; i++) {
+        var key = localStorage.key(htmlvalue);
+        var value = localStorage.getItem(key);
+        if (value == htmlvalue) {
+            console.log(key + " => " + value);
+        }
+    }
 });
 
 function health_label() {
