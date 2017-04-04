@@ -1,4 +1,4 @@
-                body {
+            body {
                 background-image: url(img/background/brickwall_@2X.png);
             }
             
@@ -169,9 +169,17 @@
                 margin-top: 0;
                 border: solid #666 thin;
                 background: #ddd;
-            }
+            }		
+			
+			.recipe-img {
+				margin-left: 5%;
+				margin-bottom: 1%;
+			}
+
             
-            @media screen and (min-width: 550px) {}
+            @media screen and (max-width: 550px) {
+
+			}
             
             @media screen and (min-width: 768px) {}
             

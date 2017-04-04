@@ -32,7 +32,7 @@ function printRecipe(response) {
             var searchrecipe = response.hits[i].recipe.ingredientLines[p];
             list += "<p>" + searchrecipe + "</p>";
         }
-        $(".recipe").append("<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='star glyphicon glyphicon-star " + i + "'</div><div class='trashbin glyphicon glyphicon-trash " + i + "'></div></h4> <p>" + list + "</p> </div> </div>");
+        $(".recipe").append("<div class='col-xs-12 recipe-divs media'> <div class='col-xs-12 col-sm-4 media-right'> <a href='#'> <img class='col-xs-10 col-xs-push-0.5 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='star glyphicon glyphicon-star " + i + "'</div><div class='trashbin glyphicon glyphicon-trash " + i + "'></div></h4> <p>" + list + "</p> </div> </div>");
     }
 };
 
@@ -57,7 +57,7 @@ function saveRecipe(searchimg, searchlabel, list, i) {
 function checkifinarray(i, keys, searchimg, searchlabel, list) {
     var n = i.toString();
     if (jQuery.inArray(n, keys) != -1) {} else {
-        localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<span class='star glyphicon glyphicon-star'</span><span class='trashbin glyphicon glyphicon-trash'></span></h4> <p>" + list + "</p> </div> </div>");
+        localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-12 col-md-4 media-right'> <a href='#'> <img class='col-xs-10 col-xs-offset-1 centered media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'></h4>" + searchlabel + "<span class='star glyphicon glyphicon-star'</span><span class='trashbin glyphicon glyphicon-trash'></span> <p>" + list + "</p> </div> </div>");
     }
 };
 
