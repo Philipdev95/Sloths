@@ -122,16 +122,16 @@ $("#searchhere").on("click", function () {
         searchDiet = diet_label(),
         searchq = $("#search").val(),
         searchAmount = $("#chooseamount option:selected").text();
-    if (localStorage.length == 90) {
+    if (localStorage.length == 7) {
         alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
         return;
     }
     fullamount = Number(localStorage.length) + Number(searchAmount);
-    if (fullamount > 90) {
+    if (fullamount > 7) {
         alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
         return;
     }
-    if (fullamount <= 90) {
+    if (fullamount <= 7) {
         searchAmount = fullamount - localStorage.length;
         recipecount(searchq, searchAmount, searchHealth, searchDiet);
     }
