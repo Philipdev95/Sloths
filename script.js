@@ -156,6 +156,7 @@ $("#favorites").on("click", ".trashbin", function () {
     for (var i = 0, len = localStorage.length; i < len; i++) {
         var key = localStorage.key(htmlvalue);
         var value = localStorage.getItem(key);
+        console.log(value);
         if (value == htmlvalue) {
             console.log(key + " => " + value);
         }
