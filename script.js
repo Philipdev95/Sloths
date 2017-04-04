@@ -7,7 +7,7 @@ window.onload = function () {
     for (; key = keys[i]; i++) {
         archive.push(localStorage.getItem(key));
     }
-    $(".recipe").append(archive);
+    $("#favorites").append(archive);
 };
 
 function localstoragelength() {
@@ -36,7 +36,7 @@ function printRecipe(response) {
     }
 };
 
-function saveRecipe(searchimg, searchlabel, list, i) {
+function saveRecipe(saved_recipe) {
     var archive = [],
         keys = Object.keys(localStorage),
         i = 0,
@@ -46,18 +46,18 @@ function saveRecipe(searchimg, searchlabel, list, i) {
     };
     var q = 0;
     if (key == undefined) {
-        checkifinarray(q, keys, searchimg, searchlabel, list);
+        checkifinarray(q, keys, saved_recipe);
     }
     for (key in keys) {
         q++;
-        checkifinarray(q, keys, searchimg, searchlabel, list);
+        checkifinarray(q, keys, saved_recipe);
     };
 };
 
-function checkifinarray(i, keys, searchimg, searchlabel, list) {
+function checkifinarray(i, keys, saved_recipe) {
     var n = i.toString();
     if (jQuery.inArray(n, keys) != -1) {} else {
-        localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'> <div class='col-xs-4 media-right'> <a href='#'> <img class='col-xs-12 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<span class='star glyphicon glyphicon-star'</span><span class='trashbin glyphicon glyphicon-trash'></span></h4> <p>" + list + "</p> </div> </div>");
+        localStorage.setItem(i, "<div class='col-xs-12 recipe-divs media'>" + saved_recipe + "</div>");
     }
 };
 
@@ -122,16 +122,16 @@ $("#searchhere").on("click", function () {
         searchDiet = diet_label(),
         searchq = $("#search").val(),
         searchAmount = $("#chooseamount option:selected").text();
-    if (localStorage.length == 7) {
+    if (localStorage.length == 90) {
         alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
         return;
     }
     fullamount = Number(localStorage.length) + Number(searchAmount);
-    if (fullamount > 7) {
+    if (fullamount > 90) {
         alert("Du kan högst visa 7 recept åt gången! Du måste radera något recept innan du söker igen!");
         return;
     }
-    if (fullamount <= 7) {
+    if (fullamount <= 90) {
         searchAmount = fullamount - localStorage.length;
         recipecount(searchq, searchAmount, searchHealth, searchDiet);
     }
@@ -139,7 +139,8 @@ $("#searchhere").on("click", function () {
 
 $("#recipes").on("click", ".star", function () {
     $(".star").css("color", "yellow");
-    localStorage.setItem("0", $(this).parent().parent().parent().html());
+    saving_recipe = $(this).parent().parent().parent().html();
+    saveRecipe(saving_recipe);
     $(this).parent().parent().parent().remove();
 });
 
