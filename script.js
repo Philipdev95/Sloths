@@ -32,7 +32,7 @@ function printRecipe(response) {
             var searchrecipe = response.hits[i].recipe.ingredientLines[p];
             list += "<p>" + searchrecipe + "</p>";
         }
-        $(".recipe").append("<div class='col-xs-12 recipe-divs media'><div class='col-xs-12 col-sm-4 media-right'> <a href='#'> <img class='col-xs-10 col-xs-push-0.5 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><div class='star glyphicon glyphicon-star'></div><h4 class='media-heading'></h4>" + searchlabel + "<div class='trashbin glyphicon glyphicon-trash'></div> <p>" + list + "</p> </div> </div>");
+        $(".recipe").append("<div class='col-xs-12 recipe-divs media'><div class='col-xs-12 col-sm-4 media-right'> <a href='#'> <img class='col-xs-10 col-xs-push-0.5 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><div class='star glyphicon glyphicon-star'></div><h4 class='media-heading'>" + searchlabel + "</h4><div class='trashbin glyphicon glyphicon-trash'></div> <p>" + list + "</p> </div> </div>");
     }
 };
 
@@ -138,9 +138,10 @@ $("#searchhere").on("click", function () {
     }
 });
 
-$("#recipes").on("click", "#i", function () {
-    $("#i").css("color", "yellow");
-    saving_recipe = $(this).parent().parent().parent().html();
+$("#recipes").on("click", ".star", function () {
+    saving_recipe = $(this).parent().parent().html();
+    console.log(saving_recipe);
+    saving_recipe = saving_recipe.replace("<div class='star glyphicon glyphicon-star'></div>", "");
     console.log(saving_recipe);
     saveRecipe(saving_recipe);
     $(this).parent().parent().parent().remove();
