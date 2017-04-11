@@ -148,6 +148,12 @@ $("#recipes").on("click", ".star", function () {
 });
 
 $("#favorites").on("click", ".trashbin", function () {
+    $(this).parent().parent().parent().remove();
+    htmlvalue = $(this).closest('.favorite-divs').attr('id');
+    localStorage.removeItem(htmlvalue);
+});
+
+$("#recipes").on("click", ".trashbin", function () {
     $(this).parent().parent().parent().parent().remove();
     htmlvalue = $(this).closest('.favorite-divs').attr('id');
     localStorage.removeItem(htmlvalue);
