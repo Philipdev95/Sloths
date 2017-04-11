@@ -32,7 +32,7 @@ function printRecipe(response) {
             var searchrecipe = response.hits[i].recipe.ingredientLines[p];
             list += "<p>" + searchrecipe + "</p>";
         }
-        $(".recipe").append("<div class='col-xs-12 recipe-divs media'><div class='col-xs-12 col-sm-4 media-right'> <a href='#'> <img class='col-xs-10 col-xs-push-0.5 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><div id='i' class='star glyphicon glyphicon-star'</div><h4 class='media-heading'></h4>" + searchlabel + "<div class='trashbin glyphicon glyphicon-trash'></div> <p>" + list + "</p> </div> </div>");
+        $(".recipe").append("<div class='col-xs-12 recipe-divs media'><div class='col-xs-12 col-sm-4 media-right'> <a href='#'> <img class='col-xs-10 col-xs-push-0.5 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><div class='star glyphicon glyphicon-star'></div><h4 class='media-heading'></h4>" + searchlabel + "<div class='trashbin glyphicon glyphicon-trash'></div> <p>" + list + "</p> </div> </div>");
     }
 };
 
