@@ -32,7 +32,7 @@ function printRecipe(response) {
             var searchrecipe = response.hits[i].recipe.ingredientLines[p];
             list += "<p>" + searchrecipe + "</p>";
         }
-        $(".recipe").append("<div class='col-xs-12 recipe-divs media'><div class='col-xs-12 col-sm-4 media-right'> <a href='#'> <img class='col-xs-10 col-xs-push-0.5 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<div class='star glyphicon glyphicon-star'></div><div class='trashbin glyphicon glyphicon-trash'></div></h4><p>" + list + "</p> </div> </div>");
+        $(".recipe").append("<div class='col-xs-12 recipe-divs media'><div class='col-xs-12 col-sm-4 media-right'> <a href='#'> <img class='col-xs-10 col-xs-push-0.5 media-object recipe-img' src='" + searchimg + "' alt='img'> </a> </div> <div class='media-body'><h4 class='media-heading'>" + searchlabel + "<span class='star glyphicon glyphicon-star'></span><div class='trashbin glyphicon glyphicon-trash'></div></h4><p>" + list + "</p> </div> </div>");
     }
 };
 
@@ -139,11 +139,11 @@ $("#searchhere").on("click", function () {
 });
 
 $("#recipes").on("click", ".star", function () {
-    saving_recipe = $(this).parent().parent().html();
-    console.log(saving_recipe);
-    saving_recipe = saving_recipe.replace("<div class='star glyphicon glyphicon-star'></div>", "");
-    console.log(saving_recipe);
-    saveRecipe(saving_recipe);
+    saving_recipe = $(this).parent().parent().parent().html();
+    first_part = saving_recipe.split("<span")[0];
+    second_part = saving_recipe.split("span>")[1];
+    both_part = first_part + second_part;
+    saveRecipe(both_part);
     $(this).parent().parent().parent().remove();
 });
 
