@@ -57,7 +57,7 @@ function saveRecipe(saved_recipe) {
 function checkifinarray(i, keys, saved_recipe) {
     var n = i.toString();
     if (jQuery.inArray(n, keys) != -1) {} else {
-        localStorage.setItem(i, "<div class='col-xs-12 favorite-divs media'>" + saved_recipe + "</div>");
+        localStorage.setItem(i, "<div class='col-xs-12 favorite-divs media' id=" + i + ">" + saved_recipe + "</div>");
     }
 };
 
@@ -148,21 +148,8 @@ $("#recipes").on("click", ".star", function () {
 
 $("#favorites").on("click", ".trashbin", function () {
     $(this).parent().parent().parent().parent().remove();
-    htmlvalue = $(this).parent().parent().parent().html();
-    console.log(htmlvalue);
-    htmlvalue = "<div class='col-xs-12 favorite-divs media'>" + htmlvalue + "</div>"
-    console.log(htmlvalue);
-    thaht = localStorage.key(htmlvalue);
-    console.log(thaht);
-    for (var i = 0, len = localStorage.length; i < len; i++) {
-        var key = localStorage.key(htmlvalue);
-        var value = localStorage.getItem(key);
-        console.log(key);
-        console.log(value);
-        if (value == htmlvalue) {
-            console.log(key + " => " + value);
-        }
-    }
+    htmlvalue = $(this).closest('.favorite-divs').attr('id');
+    localStorage.removeItem(htmlvalue);
 });
 
 function health_label() {
