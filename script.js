@@ -116,7 +116,6 @@ function recipe(searchq, searchFrom, searchTo, searchHealth, searchDiet, searchA
         success: function (response) {
             printRecipe(response);
             $("#loader").css("display", "none");
-            console.log(response);
         }
     });
 };
