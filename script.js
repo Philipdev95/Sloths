@@ -1,4 +1,8 @@
 window.onload = function () {
+    printfavoritesonpage();
+};
+
+function printfavoritesonpage() {
     var archive = [],
         keys = Object.keys(localStorage),
         i = 0,
@@ -7,7 +11,7 @@ window.onload = function () {
     for (; key = keys[i]; i++) {
         archive.push(localStorage.getItem(key));
     }
-    $("#favorites").append(archive);
+    $("#favorites").html(archive);
 };
 
 function localstoragelength() {
@@ -144,6 +148,7 @@ $("#recipes").on("click", ".star", function () {
     second_part = saving_recipe.split("span>")[1];
     both_part = first_part + second_part;
     saveRecipe(both_part);
+    printfavoritesonpage();
     $(this).parent().parent().parent().remove();
 });
 
